@@ -37,12 +37,22 @@ def selection_sort(number_array, direction='ascending'):
 
     return number_array
 
+def bubble_sort(numbers):
+    for k in range(len(numbers) - 1):
+        for n in range(len(numbers) - k - 1):
+            if numbers[n] > numbers[n + 1]:
+                numbers[n], numbers[n + 1] = numbers[n + 1], numbers[n]
+
+    return numbers
+
 
 def main():
     data = read_data('numbers.csv')
     print(data)
     sorted_array = selection_sort(data['series_1'].copy(), 'descending')
     print(sorted_array)
+    bubbles = bubble_sort(data['series_1'].copy())
+    print(bubbles)
 
 if __name__ == '__main__':
     main()
